@@ -12,7 +12,7 @@ suite("Functional Tests", () => {
   test("Translation with text and locale fields: POST request to `/api/translate`", (done) => {
     const text = "Mangoes are my favorite fruit.";
     const locale = "american-to-british";
-    const translation = translator.translate(input, locale, true);
+    const translation = translator.translateAmericanToBritish(text, true);
 
     chai
       .request(server)
