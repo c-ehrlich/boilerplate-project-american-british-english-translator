@@ -9,7 +9,7 @@ module.exports = function (app) {
   /**
    * expected request body (json):
    * locale: string - either 'american-to-british' or 'british-to-american'
-   * text: stirng - anything, not empty
+   * text: string - anything, not empty
    */
   app.route("/api/translate").post((req, res) => { 
     // make sure the body string is not empty
