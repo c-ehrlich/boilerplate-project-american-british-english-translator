@@ -193,7 +193,7 @@ suite("Unit Tests", () => {
     test("Highlight translated times, British to American", (done) => {
       const input = "Let's meet at 12.15 at Union Square Taco Bell.";
       const output = `Let's meet at ${hlStart}12:15${hlEnd} at Union Square Taco Bell.`
-      const translation = translator.translateAmericanToBritish(input, true);
+      const translation = translator.translateBritishToAmerican(input, true);
       assert.equal(translation, output);
       done();
     })

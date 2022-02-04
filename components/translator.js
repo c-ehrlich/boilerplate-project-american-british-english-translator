@@ -1,3 +1,4 @@
+const { regexpToText } = require("nodemon/lib/utils");
 const americanOnly = require("./american-only.js");
 const americanToBritishSpelling = require("./american-to-british-spelling.js");
 const americanToBritishTitles = require("./american-to-british-titles.js");
@@ -87,6 +88,8 @@ class Translator {
     // translate times
     const timeRegex = new RegExp(/(?<=\d):(?=\d)/, "gmi");
     text = text.replace(timeRegex, ".");
+    const timeHighlightRegex = new RegExp(/(?<=\b)\d+\.\d+(?=\b)/);
+    text = text.replace(timeHighlightRegex, `${prepend}$&${append}`);
 
     return text;
   };
@@ -119,6 +122,8 @@ class Translator {
     // translate times
     const timeRegex = new RegExp(/(?<=\d).(?=\d)/, "gmi");
     text = text.replace(timeRegex, ":");
+    const timeHighlightRegex = new RegExp(/(?<=\b)\d+\:\d+(?=\b)/);
+    text = text.replace(timeHighlightRegex, `${prepend}$&${append}`)
 
     return text;
   };
