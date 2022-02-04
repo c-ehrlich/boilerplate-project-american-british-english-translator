@@ -183,5 +183,19 @@ suite("Unit Tests", () => {
       assert.equal(translation, output);
       done();
     });
+    test("Highlight translated times, American to British", (done) => {
+      const input = "Let's meet at 12:15 at Union Square Taco Bell.";
+      const output = `Let's meet at ${hlStart}12.15${hlEnd} at Union Square Taco Bell.`
+      const translation = translator.translateAmericanToBritish(input, true);
+      assert.equal(translation, output);
+      done();
+    })
+    test("Highlight translated times, British to American", (done) => {
+      const input = "Let's meet at 12.15 at Union Square Taco Bell.";
+      const output = `Let's meet at ${hlStart}12:15${hlEnd} at Union Square Taco Bell.`
+      const translation = translator.translateAmericanToBritish(input, true);
+      assert.equal(translation, output);
+      done();
+    })
   });
 });
